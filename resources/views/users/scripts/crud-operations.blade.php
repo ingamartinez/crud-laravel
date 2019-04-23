@@ -4,7 +4,7 @@
         evt.preventDefault();
         let form = $(evt.currentTarget);
         let data = $(evt.currentTarget).serializeObject();
-        let accion = $("#form button[type='submit']").data("action");
+        let accion = $("#form button[type='submit']").attr('data-action');
         switch (accion) {
             case "create":
                 try {
@@ -52,7 +52,7 @@
                 await swal("¡Bien!", response.data.message, "success", {button: "Ok",});
                 dataTableUsers.ajax.reload(null, false);
                 limpiarForm();
-                $("#modal-agregar").modal('toggle');
+                $("#modal-user").modal('toggle');
                 resolve();
             }catch (e) {
                 reject(e.response.data);
@@ -66,7 +66,7 @@
                 await swal("¡Bien!", response.data.message, "success", {button: "Ok",});
                 dataTableUsers.ajax.reload(null, false);
                 limpiarForm();
-                $("#modal-agregar").modal('toggle');
+                $("#modal-user").modal('toggle');
                 resolve();
             }catch (e) {
                 reject(e.response.data);
@@ -91,7 +91,7 @@
             try {
                 const response = await axios.get('/users/' + id);
                 $("#form button[type='submit']").html("Editar").attr("data-action", "edit");
-                $("#modal-agregar").modal('toggle');
+                $("#modal-user").modal('toggle');
                 resolve(response.data.data);
             }catch (e) {
                 reject(e.response.data);
@@ -111,8 +111,8 @@
         $("#cedula").val(data.cedula);
         $("#email").val(data.email);
     }
-    $('#modal-agregar').on('hidden.bs.modal', function () {
-        $("#id_role").val('');
+    $('#modal-user').on('hidden.bs.modal', function () {
+        $("#id_user").val('');
         limpiarForm();
     })
 </script>

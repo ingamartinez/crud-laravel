@@ -12,7 +12,7 @@
             <div class="card ">
                 <div class="card-header ">
                     <h5 class="card-title">Crud usuarios</h5>
-                    <p class="card-category"><button class="btn btn-info" data-toggle="modal" data-target="#modal-agregar">Agregar</button></p>
+                    <p class="card-category"><button class="btn btn-info" data-toggle="modal" data-target="#modal-user">Agregar</button></p>
                 </div>
                 <div class="card-body ">
                     <table class="table" id="table-users">
@@ -36,7 +36,7 @@
 @endsection
 
 @section('modals')
-    @include('users.modals.modal-agregar')
+    @include('users.modals.modal-user')
 @endsection
 
 
@@ -54,5 +54,5 @@
 
 @push('scripts')
     @include('users.scripts.init')
-    @include('users.scripts.agregar')
+    @include('users.scripts.crud-operations')
 @endpush
