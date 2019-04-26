@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\UserRequestStore;
+use App\Http\Requests\User\UserRequestUpdate;
 use App\Traits\AppHelpers;
 use App\User;
-use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -25,7 +26,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequestStore $request)
     {
         try{
             $user = User::create($request->except('id_user'));
@@ -46,7 +47,7 @@ class UsersController extends Controller
         try{
             $user = User::findOrFail($id);
         }catch (\Exception $ex){
-            return $this->returnErrors("Error al buscar rol",$ex->getMessage());
+            return $this->returnErrors("Error al buscar usuario",$ex->getMessage());
         }
         return $this->returnSuccess('Success',$user);
     }
@@ -58,7 +59,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequestUpdate $request, $id)
     {
         try{
             $user = User::findOrFail($id);

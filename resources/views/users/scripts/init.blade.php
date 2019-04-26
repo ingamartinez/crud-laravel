@@ -41,8 +41,8 @@
                     data: 'id',
                     render: function (data) {
                         return '<div class="btn-group">' +
-                            `<a href="#" title="Editar" class="btn btn-info btn-icon btn-circle btn-sm btn-edit"><i class="fa fa-edit"></i></a>` +
-                            '<a href="#" title="Eliminar" class="btn btn-danger btn-icon btn-circle btn-sm btn-delete"><i class="fa fa-remove"></i></a>'
+                            `<a href="#" title="Editar" class="btn btn-info btn-icon btn-circle btn-sm btn-edit"><i <i class="fas fa-edit"></i></a>` +
+                            '<a href="#" title="Eliminar" class="btn btn-danger btn-icon btn-circle btn-sm btn-delete"><i class="fas fa-trash-alt"></i></a>'
                     },
                     targets: -1,
                     orderable: false,

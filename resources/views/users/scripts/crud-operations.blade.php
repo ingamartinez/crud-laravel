@@ -112,6 +112,7 @@
         $("#email").val(data.email);
     }
     $('#modal-user').on('hidden.bs.modal', function () {
+        $('input').removeClass('is-invalid');
         $("#id_user").val('');
         limpiarForm();
     })
